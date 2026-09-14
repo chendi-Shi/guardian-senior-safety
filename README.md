@@ -17,6 +17,8 @@ short_description: 在危险动作前提醒，面向老人的数字安全带
 
 源码仓库：[chendi-Shi/guardian-senior-safety](https://github.com/chendi-Shi/guardian-senior-safety)。
 
+魔搭已上线的公开体验：[直接打开演示](https://kevin711-guardian-senior-safety.ms.show/) · [魔搭创空间](https://modelscope.cn/studios/kevin711/guardian-senior-safety)。已设置“仅公开体验”，应用可免登录访问，平台空间文件仅所有者可见。
+
 Hugging Face 已上线的免费静态演示：[fall2028/guardian-senior-safety](https://huggingface.co/spaces/fall2028/guardian-senior-safety)。仓库和 Space 当前都设置为私有，需使用有权限的账号访问。
 
 ## 30 秒启动
@@ -98,6 +100,12 @@ docker run --rm -p 7860:7860 guardian
 2026-09-14 已在在线 Space 验证：客服场景风险分依次为 10、24、35、45、95，安装和共享请求分别触发提醒，家属模拟确认闭环可用；正常客服与反诈科普场景保持静默。Hugging Face 部署提交为 `f107a3015a53c4e9bbf99b164c684ff9d8a1596e`。
 
 CPU Basic 无小时硬件费用，但 Hugging Face 当前文档要求个人账号具备 PRO 才能新建 Docker Space；实际资格以账号创建页面为准。不需要选择 GPU。参考 [Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker) 和 [Space 资格与硬件说明](https://huggingface.co/docs/hub/spaces-overview)。
+
+## 魔搭创空间部署
+
+运行 `node scripts/export-modelscope.mjs`，将 `work/modelscope-static/` 中的文件上传到创空间根目录。部署设置选择 **Static** 和免费资源，确认后发布；`ms_deploy.json` 提供初始配置，提交前仍需核对页面上的 SDK 类型。入口包含同一份规则模块、交互和样式，不依赖在线模型、外部前端资源或 API 密钥。
+
+2026-09-14 已部署到 `kevin711/guardian-senior-safety`，平台状态为“运行中”，可见性为“仅公开体验”，OAuth 关闭。已验证五轮客服场景的风险分 10、24、35、45、95、屏幕共享提醒、家属模拟确认与重置。对 `https://kevin711-guardian-senior-safety.ms.show/` 的无 Cookie、无认证 HTTP 请求返回 200 和完整演示页面。上传的应用入口与已验证的 Hugging Face 版本字节相同。
 
 ## 核心结构
 

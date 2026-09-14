@@ -1,0 +1,4 @@
+{
+  "sdk_type": "static",
+  "resource_configuration": "platform/2v-cpu-16g-mem"
+}
