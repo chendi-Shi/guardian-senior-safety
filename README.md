@@ -1,8 +1,21 @@
+---
+title: Guardian 银盾陪护
+emoji: 🛡️
+colorFrom: green
+colorTo: blue
+sdk: docker
+app_port: 7860
+fullWidth: true
+short_description: 在危险动作前提醒，面向老人的数字安全带
+---
+
 # Guardian 银盾陪护
 
 老年人的数字安全带。持续跟踪对话如何诱导危险动作，在值得打扰的时刻给出具体提醒。
 
 这是可运行的黑客松 MVP，包含网页演示、四层算法、可选在线模型适配器、公开测试脚本与答辩材料。默认使用本地规则，不需要安装依赖或填写 API Key。
+
+源码仓库：[chendi-Shi/guardian-senior-safety](https://github.com/chendi-Shi/guardian-senior-safety)。
 
 ## 30 秒启动
 
@@ -61,7 +74,24 @@ node --env-file=.env server.mjs
 node --env-file=.env scripts/model_demo.mjs "短信里那六个数，念一遍"
 ```
 
-提供了模拟响应的接口测试，但没有真实在线模型成绩。托管演示为静态离线版本，不包含这个本地服务。
+提供了模拟响应的接口测试，但没有真实在线模型成绩。初版 Sites 演示为静态离线版本；Hugging Face Docker Space 运行完整 Node.js 服务，支持模型代理与健康检查。
+
+## Hugging Face Spaces 部署
+
+仓库含 Dockerfile 与 Space 元数据。容器以非 root 用户运行，监听 `0.0.0.0:7860`，健康检查为 `/healthz`。应用没有安装依赖或模型下载步骤。
+
+在 Space 的 Settings 中可选配置：`GUARDIAN_LLM_URL` 和 `GUARDIAN_LLM_MODEL` 为 Variables，`GUARDIAN_LLM_KEY` 必须作为 Secret。没有密钥时完整规则演示仍可使用。网页只在服务报告配置完成后显示在线模型开关。
+
+若使用自定义域名，在 `GUARDIAN_ALLOWED_ORIGINS` 填写精确 HTTPS origin，多个值以逗号分隔。平台提供的 `SPACE_HOST` 会自动加入允许列表。模型代理每实例最多同时处理 2 个请求、每分钟最多 30 次；它不是多用户鉴权系统，私有演示应保留 Space 的访问限制。
+
+本地 Docker：
+
+```sh
+docker build -t guardian .
+docker run --rm -p 7860:7860 guardian
+```
+
+CPU Basic 无小时硬件费用，但 Hugging Face 当前文档要求个人账号具备 PRO 才能新建 Docker Space；实际资格以账号创建页面为准。不需要选择 GPU。参考 [Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker) 和 [Space 资格与硬件说明](https://huggingface.co/docs/hub/spaces-overview)。
 
 ## 核心结构
 
@@ -87,12 +117,11 @@ docs/                            参赛方案、演示稿、答辩与接口约�
 ## 验证
 
 ```sh
-node tests/guardian.test.mjs
-node tests/provider.test.mjs
+node scripts/test.mjs
 node scripts/evaluate.mjs
 ```
 
-核心 18 项、接口契约 3 项测试通过。50 条开发脚本结果见 `evaluation/REPORT.md`。Guardian 在 20 条危险场景中有 15 条在脚本假定执行前给出目标动作提醒，另外 5 条隐晦表达漏检。正常 20 条与边界 10 条没有主动提醒误扰。该数据由本项目编写，没有独立测试集，不能作为真实防护率。
+核心 18 项、接口契约 3 项、部署服务 4 项，共 25 项测试通过。服务测试涵盖首页、健康检查、未配置模型、Space 来源校验和请求验证；不代表已在本地运行 Docker 构建。50 条开发脚本结果见 `evaluation/REPORT.md`。Guardian 在 20 条危险场景中有 15 条在脚本假定执行前给出目标动作提醒，另外 5 条隐晦表达漏检。正常 20 条与边界 10 条没有主动提醒误扰。该数据由本项目编写，没有独立测试集，不能作为真实防护率。
 
 ## 参赛材料
 
