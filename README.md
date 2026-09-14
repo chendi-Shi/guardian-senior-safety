@@ -17,6 +17,8 @@ short_description: 在危险动作前提醒，面向老人的数字安全带
 
 源码仓库：[chendi-Shi/guardian-senior-safety](https://github.com/chendi-Shi/guardian-senior-safety)。
 
+Hugging Face 静态演示目标：[fall2028/guardian-senior-safety](https://huggingface.co/spaces/fall2028/guardian-senior-safety)。仓库和 Space 当前都设置为私有，需使用有权限的账号访问。
+
 ## 30 秒启动
 
 需要 Node.js 20.6 或更高版本。在项目文件夹内运行：
@@ -90,6 +92,8 @@ node --env-file=.env scripts/model_demo.mjs "短信里那六个数，念一遍"
 docker build -t guardian .
 docker run --rm -p 7860:7860 guardian
 ```
+
+免费静态演示包可运行 `node scripts/export-static.mjs` 生成到 `work/huggingface-static/`，将目录中的文件上传至 Static Space 根目录，保留 `core/` 子目录。静态包的 README 已设置 `sdk: static`，不要用仓库根目录的 Docker 元数据替换它。静态版明确关闭模型代理探测。
 
 CPU Basic 无小时硬件费用，但 Hugging Face 当前文档要求个人账号具备 PRO 才能新建 Docker Space；实际资格以账号创建页面为准。不需要选择 GPU。参考 [Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker) 和 [Space 资格与硬件说明](https://huggingface.co/docs/hub/spaces-overview)。
 
