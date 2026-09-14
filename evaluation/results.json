@@ -1,0 +1,755 @@
+{
+  "kind": "synthetic-development-fixtures",
+  "createdAt": "2026-09-14T02:17:44.601Z",
+  "cases": 50,
+  "split": {
+    "scam": 20,
+    "normal": 20,
+    "boundary": 10
+  },
+  "threshold": "Guardian policy level >= 3",
+  "harmTiming": "Dangerous instruction at 48s; fictional execution at 56s. This 8s gap is a fixture assumption, not measured intervention latency.",
+  "bharDefinition": "An action-specific active warning occurs strictly before labelled action execution. Denominator includes all 20 harmful scenarios.",
+  "limitations": [
+    "Fixtures were authored with the implementation; this is not a held-out test.",
+    "Five paraphrases intentionally probe limits of keyword-based extraction.",
+    "No production users, no real operations, no LLM baseline run.",
+    "Scores and next-action weights are not calibrated probabilities."
+  ],
+  "reports": [
+    {
+      "method": "关键词基线",
+      "scamRecall": 1,
+      "normalFalseAlarm": 0.3,
+      "boundaryFalseAlarm": 0.8,
+      "bhar": 0.75,
+      "meanLeadTime": 8,
+      "missed": [
+        "euphemism-01",
+        "euphemism-02",
+        "euphemism-03",
+        "euphemism-04",
+        "euphemism-05"
+      ],
+      "rows": [
+        {
+          "id": "refund-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "refund-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "refund-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "remote-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "remote-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "password-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "password-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-04",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-05",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "euphemism-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-04",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-05",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-01",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-02",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-03",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-04",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-05",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-06",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-07",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-08",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-09",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-10",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-11",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-12",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-13",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-14",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-15",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-16",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-17",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-18",
+          "category": "normal",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-19",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-20",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-01",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-02",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-03",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-04",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-05",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-06",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-07",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-08",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-09",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-10",
+          "category": "boundary",
+          "alarm": true,
+          "beforeHarm": false,
+          "leadTime": null
+        }
+      ]
+    },
+    {
+      "method": "Guardian 规则＋序列",
+      "scamRecall": 0.75,
+      "normalFalseAlarm": 0,
+      "boundaryFalseAlarm": 0,
+      "bhar": 0.75,
+      "meanLeadTime": 8,
+      "missed": [
+        "euphemism-01",
+        "euphemism-02",
+        "euphemism-03",
+        "euphemism-04",
+        "euphemism-05"
+      ],
+      "rows": [
+        {
+          "id": "refund-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "refund-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "refund-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "otp-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "remote-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "remote-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "password-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "password-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-01",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-02",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-03",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-04",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "transfer-05",
+          "category": "scam",
+          "alarm": true,
+          "beforeHarm": true,
+          "leadTime": 8
+        },
+        {
+          "id": "euphemism-01",
+          "category": "scam",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-02",
+          "category": "scam",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-03",
+          "category": "scam",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-04",
+          "category": "scam",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "euphemism-05",
+          "category": "scam",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-01",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-02",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-03",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-04",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-05",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-06",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-07",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-08",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-09",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-10",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-11",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-12",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-13",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-14",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-15",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-16",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-17",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-18",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-19",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "normal-20",
+          "category": "normal",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-01",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-02",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-03",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-04",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-05",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-06",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-07",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-08",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-09",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        },
+        {
+          "id": "boundary-10",
+          "category": "boundary",
+          "alarm": false,
+          "beforeHarm": false,
+          "leadTime": null
+        }
+      ]
+    }
+  ]
+}
