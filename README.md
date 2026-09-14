@@ -17,7 +17,7 @@ short_description: 在危险动作前提醒，面向老人的数字安全带
 
 源码仓库：[chendi-Shi/guardian-senior-safety](https://github.com/chendi-Shi/guardian-senior-safety)。
 
-Hugging Face 静态演示目标：[fall2028/guardian-senior-safety](https://huggingface.co/spaces/fall2028/guardian-senior-safety)。仓库和 Space 当前都设置为私有，需使用有权限的账号访问。
+Hugging Face 已上线的免费静态演示：[fall2028/guardian-senior-safety](https://huggingface.co/spaces/fall2028/guardian-senior-safety)。仓库和 Space 当前都设置为私有，需使用有权限的账号访问。
 
 ## 30 秒启动
 
@@ -76,7 +76,7 @@ node --env-file=.env server.mjs
 node --env-file=.env scripts/model_demo.mjs "短信里那六个数，念一遍"
 ```
 
-提供了模拟响应的接口测试，但没有真实在线模型成绩。初版 Sites 演示为静态离线版本；Hugging Face Docker Space 运行完整 Node.js 服务，支持模型代理与健康检查。
+提供了模拟响应的接口测试，但没有真实在线模型成绩。当前 Sites 和 Hugging Face 演示都使用浏览器内规则；源码提供的 Docker 配置可运行完整 Node.js 服务，支持模型代理与健康检查，但当前未部署该后端。
 
 ## Hugging Face Spaces 部署
 
@@ -93,7 +93,9 @@ docker build -t guardian .
 docker run --rm -p 7860:7860 guardian
 ```
 
-免费静态演示包可运行 `node scripts/export-static.mjs` 生成到 `work/huggingface-static/`，将目录中的文件上传至 Static Space 根目录，保留 `core/` 子目录。静态包的 README 已设置 `sdk: static`，不要用仓库根目录的 Docker 元数据替换它。静态版明确关闭模型代理探测。
+免费静态演示包可运行 `node scripts/export-static.mjs` 生成到 `work/huggingface-static/`，将目录中的文件上传至 Static Space 根目录，保留 `core/` 子目录。静态包的 README 已设置 `sdk: static`，不要用仓库根目录的 Docker 元数据替换它。静态版明确关闭模型代理探测。导出器把同一份模块和样式内嵌到入口 HTML，减少私有 Space 内嵌页面中的额外认证资源请求；其余源码文件保留供查看。新增打包一致性测试覆盖四个演示场景的全部对话轮次。
+
+2026-09-14 已在在线 Space 验证：客服场景风险分依次为 10、24、35、45、95，安装和共享请求分别触发提醒，家属模拟确认闭环可用；正常客服与反诈科普场景保持静默。Hugging Face 部署提交为 `f107a3015a53c4e9bbf99b164c684ff9d8a1596e`。
 
 CPU Basic 无小时硬件费用，但 Hugging Face 当前文档要求个人账号具备 PRO 才能新建 Docker Space；实际资格以账号创建页面为准。不需要选择 GPU。参考 [Docker Spaces](https://huggingface.co/docs/hub/spaces-sdks-docker) 和 [Space 资格与硬件说明](https://huggingface.co/docs/hub/spaces-overview)。
 
@@ -125,7 +127,7 @@ node scripts/test.mjs
 node scripts/evaluate.mjs
 ```
 
-核心 18 项、接口契约 3 项、部署服务 4 项，共 25 项测试通过。服务测试涵盖首页、健康检查、未配置模型、Space 来源校验和请求验证；不代表已在本地运行 Docker 构建。50 条开发脚本结果见 `evaluation/REPORT.md`。Guardian 在 20 条危险场景中有 15 条在脚本假定执行前给出目标动作提醒，另外 5 条隐晦表达漏检。正常 20 条与边界 10 条没有主动提醒误扰。该数据由本项目编写，没有独立测试集，不能作为真实防护率。
+核心 18 项、接口契约 3 项、部署服务 4 项、静态打包 2 项，共 27 项测试。服务测试涵盖首页、健康检查、未配置模型、Space 来源校验和请求验证；不代表已在本地运行 Docker 构建。50 条开发脚本结果见 `evaluation/REPORT.md`。Guardian 在 20 条危险场景中有 15 条在脚本假定执行前给出目标动作提醒，另外 5 条隐晦表达漏检。正常 20 条与边界 10 条没有主动提醒误扰。该数据由本项目编写，没有独立测试集，不能作为真实防护率。
 
 ## 参赛材料
 
